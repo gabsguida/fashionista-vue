@@ -1,13 +1,19 @@
 <template>
-    <div class="sidebar__content">
-        <div :class="[className, (isRight ? 'sidebar--right' : '')]" class="sidebar" data-testid="sidebar">
-            <div class="sidebar__header">
-                <span class="sidebar__header-title">{{ title }}</span>
-                
-            </div>
-        </div>
-        <slot></slot>
+  <div class="sidebar__content">
+    <div
+      :class="[className, isRight ? 'sidebar--right' : '']"
+      class="sidebar"
+      data-testid="sidebar"
+    >
+      <div class="sidebar__header">
+        <span class="sidebar__header-title">{{ title }}</span>
+        <router-link to="/" class="sidebar__header-close-btn">
+          <span class="material-icons">close</span>
+        </router-link>
+      </div>
     </div>
+    <slot></slot>
+  </div>
 </template>
 
 <script lang="ts">
