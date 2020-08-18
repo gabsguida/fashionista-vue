@@ -1,7 +1,7 @@
 <template>
   <div class="Sidebar__containers">
     <Sidebar className="menu__container" title="Menu">
-      <p>Menu</p>
+      <Menu />
     </Sidebar>
     <Sidebar className="search__container" title="Busca" isRight="true">
       <p>Busca</p>
@@ -18,10 +18,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
+import Menu from "@/components/Menu/Menu.vue";
 
 @Component({
   components: {
-    Sidebar
+    Sidebar,
+    Menu
   }
 })
 export default class SidebarItems extends Vue {}

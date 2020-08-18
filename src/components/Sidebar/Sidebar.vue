@@ -22,8 +22,10 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 @Component
 export default class Sidebar extends Vue {
   // adding '!' tells to typescript to 'relax' cause someone else is going to assign this property a value
+  @Prop({ required: true, type: String }) className!: string;
   @Prop({ required: true, type: Boolean, default: false }) isRight!: boolean;
-  @Prop({ required: true, type: String, default: "" }) className!: string;
-  @Prop({ required: true, type: String, default: "" }) title!: string;
+  @Prop({ required: true, type: String }) title!: string;
+
+  private active = false;
 }
 </script>
