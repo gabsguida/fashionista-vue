@@ -1,8 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani&display=swap');
+
+
 :root {
-    --vs-primary: 91, 60, 196
-    --vs-success: 23, 201, 100
-    --vs-danger: 242, 19, 93
-    --vs-warn: 254, 130, 0
-    --vs-dark: 36, 33, 69
+    --vs-primary: 91, 60, 196;
+    --vs-success: 23, 201, 100;
+    --vs-danger: 242, 19, 93;
+    --vs-warn: 254, 130, 0;
+    --vs-dark: 36, 33, 69;
 }
 
+* {
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Rajdhani', sans-serif;
+    background-color: #fafafa;
+    font-size: 16px;
+    color: #212121;
+    margin-top: 60px;
+}
+
+nav ul{
+    list-style: none;
+    margin: 0;
+    padding-left: 0;
+}
+
+a {
+    color: #212121;
+}
+
+.custom-scrollbar{
+    scrollbar-width: thin;
+    scrollbar-color: #888888 #dedede;
+}
+
+.custom-scrollbar::-webkit-scrollbar{
+    width: 8px;
+    margin-left: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track{
+    background-color: #dedede;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb{
+    background-color: #888888;
+}
+
+/* color: #b99646; */
