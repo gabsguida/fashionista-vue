@@ -1,15 +1,14 @@
 <template>
-  <div class="sidebar__content">
-    <div
-      :class="[className, isRight ? 'sidebar--right' : '']"
-      class="sidebar"
-      data-testid="sidebar"
-    >
+  <div class="sidebar" v-if="openSidebar === true">
+    <div :class="[isRight ? 'sidebar--right' : '']">
       <div class="sidebar__header">
         <span class="sidebar__header-title">{{ title }}</span>
-        <router-link to="/" class="sidebar__header-close-btn">
-          <span class="material-icons">close</span>
-        </router-link>
+        <span
+          class="material-icons sidebar__header-close-btn"
+          @click="closeSidebar"
+        >
+          close
+        </span>
       </div>
     </div>
     <slot></slot>
@@ -18,14 +17,74 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import sidebarState from "../../store/modules/sidebar-state";
 
 @Component
 export default class Sidebar extends Vue {
   // adding '!' tells to typescript to 'relax' cause someone else is going to assign this property a value
-  @Prop({ required: true, type: String }) className!: string;
+  //@Prop({ required: true, type: String }) className!: string;
   @Prop({ required: true, type: Boolean, default: false }) isRight!: boolean;
   @Prop({ required: true, type: String }) title!: string;
 
-  private active = false;
+  public closeSidebar(): boolean {
+    const sidebarStateToggle = getModule(sidebarState, this.$store);
+    return sidebarStateToggle.setToggleSidebar(false);
+  }
+
+  public openSidebar(): boolean {
+    const sidebarStateToggle = getModule(sidebarState, this.$store);
+    return sidebarStateToggle.showSidebar;
+  }
 }
 </script>
+
+<style lang="scss" scoped>
+.sidebar {
+  background-color: #fff;
+  width: 95vw;
+  max-width: 420px;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.sidebar--right {
+  right: 0;
+  left: auto;
+  box-shadow: -10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar--active {
+  display: block;
+}
+
+.sidebar__header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  border-bottom: 1px solid #cfcdcd;
+}
+
+.sidebar__header-title,
+.sidebar__header-close-btn {
+  font-size: 2em;
+}
+
+.sidebar__header-close-btn {
+  color: #fff;
+  transition: all 0.2s ease-in-out;
+}
+
+.sidebar--right .sidebar__header-close-btn {
+  color: #212121;
+}
+
+.sidebar__header-close-btn:hover {
+  color: #b99646;
+  transition: all 0.2s ease-in-out;
+}
+</style>

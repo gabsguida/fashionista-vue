@@ -1,19 +1,26 @@
 <template>
-  <nav class="menu__nav" data-testid="menu">
-    <ul v-for="(links, index) in menuLinks" :key="index">
-      <li>
-        <router-link class="menu__nav-link" :to="links.url">
-          {{ links.title }}
-        </router-link>
-      </li>
-    </ul>
-  </nav>
+  <Sidebar title="Menu">
+    <nav class="menu__nav">
+      <ul v-for="(links, index) in menuLinks" :key="index">
+        <li>
+          <router-link class="menu__nav-link" :to="links.url">
+            {{ links.title }}
+          </router-link>
+        </li>
+      </ul>
+    </nav>
+  </Sidebar>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import Sidebar from "@/components/Sidebar/Sidebar.vue";
 
-@Component
+@Component({
+  components: {
+    Sidebar
+  }
+})
 export default class Menu extends Vue {
   private menuLinks: Array<object> = [
     {

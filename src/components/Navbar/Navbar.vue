@@ -1,11 +1,7 @@
 <template>
-  <header class="header" data-testid="header">
+  <header class="header">
     <div class="header__container">
-      <ButtonIcon
-        iconName="menu"
-        sidebar=".menu__container"
-        className="header__hamburguer"
-      />
+      <ButtonIcon iconName="menu" className="header__hamburguer" />
       <div class="header__logo">
         <a to="/" title="Ir para a página inicial">
           <img
@@ -17,21 +13,15 @@
       </div>
       <div class="header__actions">
         <div class="header__actions-list">
-          <ButtonIcon
-            className="header__actions-search"
-            iconName="search"
-            sidebar=".search__container"
-          />
+          <ButtonIcon className="header__actions-search" iconName="search" />
           <ButtonIcon
             className="header__actions-cart"
             iconName="shopping_cart"
-            sidebar=".cart__container"
             badge="1"
           />
           <ButtonIcon
             className="header__actions-account"
             iconName="account_circle"
-            sidebar=".account__container"
           />
         </div>
       </div>
@@ -56,6 +46,7 @@ export default class Navbar extends Vue {}
   width: 100%;
   position: fixed;
   top: 0;
+  left: 0;
   z-index: 10;
   background-color: #ffffff;
 }
@@ -76,34 +67,8 @@ export default class Navbar extends Vue {}
   cursor: pointer;
 }
 
-.header__icon {
-  font-size: 2rem;
-  padding: 5px 10px 10px;
-  position: relative;
-  height: 40px;
-  display: inline-block;
-}
-
 .header__actions-cart {
   position: relative;
-}
-
-.header__icon[data-badge]:not([data-badge="0"]):before {
-  content: attr(data-badge);
-  display: inline-block;
-  height: 5px;
-  background: #b99646;
-  position: absolute;
-  top: 2px;
-  font-size: 0.9rem;
-  padding: 8px;
-  border-radius: 50%;
-  min-width: 6px;
-  line-height: 0.4rem;
-  text-align: center;
-  color: white;
-  right: 3px;
-  z-index: 5;
 }
 
 .header__actions-list {

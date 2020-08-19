@@ -10,7 +10,7 @@ Vue.use(Vuesax);
 
 import "material-icons/iconfont/material-icons.scss"; //Material Icons
 import "vuesax/dist/vuesax.css"; // Vuesax
-import "./assets/scss/main.scss"; 
+import "./assets/scss/main.scss"; // global style
 
 
 Vue.config.productionTip = false;

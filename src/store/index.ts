@@ -1,11 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
+import sidebarState from "./modules/sidebar-state";
+
 Vue.use(Vuex);
 
-export default new Vuex.Store({
+const store = new Vuex.Store({
   state: {},
-  mutations: {},
-  actions: {},
-  modules: {}
+  modules: {
+    sidebarState
+  }
 });
+
+export default store;
