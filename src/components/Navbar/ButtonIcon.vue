@@ -1,5 +1,5 @@
 <template>
-  <div :class="className" @click.prevent="toggle" :data-badge="badge">
+  <div :class="className" @click="toggle()" :data-badge="badge">
     <span class="material-icons header__icon">{{ iconName }}</span>
   </div>
 </template>
@@ -7,7 +7,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import sidebarState from "../../store/modules/sidebar-state";
+import SidebarState from "../../store/modules/sidebar-state";
 
 @Component
 export default class ButtonIcon extends Vue {
@@ -16,10 +16,10 @@ export default class ButtonIcon extends Vue {
   @Prop({ type: String }) badge!: string;
   @Prop({ required: true, type: String }) iconName!: string;
 
-  //chamar o getModule
-  private toggle(): boolean {
-    const sidebarStateToggle = getModule(sidebarState, this.$store);
-    return sidebarStateToggle.setToggleSidebar(true);
+  private toggle(): void {
+    const sidebarState = getModule(SidebarState, this.$store);
+    console.log(sidebarState.getSidebarStatus);
+    return sidebarState.toggleSidebar();
   }
 }
 </script>

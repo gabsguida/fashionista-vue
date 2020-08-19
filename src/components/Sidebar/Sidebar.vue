@@ -1,5 +1,5 @@
 <template>
-  <div class="sidebar" v-if="openSidebar === true">
+  <div class="sidebar" v-show="">
     <div :class="[isRight ? 'sidebar--right' : '']">
       <div class="sidebar__header">
         <span class="sidebar__header-title">{{ title }}</span>
@@ -18,7 +18,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import sidebarState from "../../store/modules/sidebar-state";
+import SidebarState from "../../store/modules/sidebar-state";
 
 @Component
 export default class Sidebar extends Vue {
@@ -27,14 +27,20 @@ export default class Sidebar extends Vue {
   @Prop({ required: true, type: Boolean, default: false }) isRight!: boolean;
   @Prop({ required: true, type: String }) title!: string;
 
-  public closeSidebar(): boolean {
-    const sidebarStateToggle = getModule(sidebarState, this.$store);
-    return sidebarStateToggle.setToggleSidebar(false);
+  public closeSidebar(): void {
+    const sidebarState = getModule(SidebarState, this.$store);
+    return sidebarState.closeSidebar();
   }
 
-  public openSidebar(): boolean {
-    const sidebarStateToggle = getModule(sidebarState, this.$store);
-    return sidebarStateToggle.showSidebar;
+  public openSidebar(): void {
+    const sidebarState = getModule(SidebarState, this.$store);
+    return sidebarState.showSidebar();
+  }
+
+  public isSidebarOpen(): boolean {
+    const sidebarState = getModule(SidebarState, this.$store);
+    console.log("lalalal");
+    return sidebarState.getSidebarStatus;
   }
 }
 </script>

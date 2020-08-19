@@ -1,47 +1,31 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 
-@Module({ namespaced: true, name: 'sidebarState'})
+@Module({ namespaced: true, name: 'SidebarState'})
 
-export default class sidebarState extends VuexModule {
+export default class SidebarState extends VuexModule {
     isSidebarOpen = false
 
     @Mutation
-    public toggleSidebar(newState: boolean): any {
+    public changeSidebarStatus(newState: boolean): any {
         this.isSidebarOpen = newState;
     }
 
     @Action
-    public setToggleSidebar(newState: boolean): any{
-        this.context.commit('toggleSidebar', newState)
+    public showSidebar(): any {
+        this.context.commit('changeSidebarStatus', true)
     }
 
-    get showSidebar() {
+    @Action
+    public closeSidebar(): any {
+        this.context.commit('changeSidebarStatus', false)
+    }
+
+    @Action
+    public toggleSidebar(): any {
+        this.context.commit('changeSidebarStatus', !this.isSidebarOpen)
+    }
+
+    get getSidebarStatus() {
         return this.isSidebarOpen
     }
 }
-
-
-/* export default {
-    namespaced: true as true,
-    state: {
-        isSidebarOpen: false
-    },
-
-    mutations: {
-        toggleSidebar(state: { isSidebarOpen: boolean }, newState: boolean) {
-            state.isSidebarOpen = newState
-        }
-    },
-
-    actions: {
-        setToggleSidebar({ commit }: any, data: boolean) {
-            commit('toggleSidebar', data);
-        }
-    },
-
-    getters: {
-        showSidebar(state: { isSidebarOpen: boolean }) {
-            return state.isSidebarOpen
-        }
-    }
-} */
