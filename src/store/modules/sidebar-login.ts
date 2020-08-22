@@ -1,13 +1,13 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 
-@Module({ namespaced: true, name: 'SidebarMenu'})
+@Module({ namespaced: true, name: 'SidebarLogin'})
 
-export default class SidebarMenu extends VuexModule {
-    isSidebarMenuOpen = false
+export default class SidebarLogin extends VuexModule {
+    isSidebarLoginOpen = false
 
     @Mutation
     public changeSidebarStatus(newState: boolean): any {
-        this.isSidebarMenuOpen = newState;
+        this.isSidebarLoginOpen = newState;
     }
 
     @Action
@@ -21,12 +21,12 @@ export default class SidebarMenu extends VuexModule {
     }
 
     @Action
-    public toggleSidebarMenu(): any {
-        this.context.commit('changeSidebarStatus', !this.isSidebarMenuOpen)
+    public toggleSidebarLogin(): any {
+        this.context.commit('changeSidebarStatus', !this.isSidebarLoginOpen)
     }
 
     // getter
-    get getSidebarMenuStatus() {
-        return this.isSidebarMenuOpen
+    get getSidebarLoginStatus() {
+        return this.isSidebarLoginOpen
     }
 }

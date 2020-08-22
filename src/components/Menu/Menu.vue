@@ -1,5 +1,10 @@
 <template>
-  <Sidebar title="Menu">
+  <Sidebar
+    title="Menu"
+    className="menu__container"
+    :isSidebarOpen="isSidebarOpen"
+    :closeSidebar="closeSidebar"
+  >
     <nav class="menu__nav">
       <ul v-for="(links, index) in menuLinks" :key="index">
         <li>
@@ -14,6 +19,9 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import SidebarMenu from "../../store/modules/sidebar-state";
+
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
 
 @Component({
@@ -44,6 +52,25 @@ export default class Menu extends Vue {
       title: "Vestidos"
     }
   ];
+
+  public closeSidebar(): void {
+    const sidebarState = getModule(SidebarMenu, this.$store);
+    return sidebarState.closeSidebar();
+  }
+
+  public openSidebar(): void {
+    const sidebarState = getModule(SidebarMenu, this.$store);
+    return sidebarState.showSidebar();
+  }
+
+  get isSidebarOpen(): boolean {
+    const sidebarState = getModule(SidebarMenu, this.$store);
+    return sidebarState.getSidebarMenuStatus;
+  }
+
+  mounted() {
+    this.isSidebarOpen;
+  }
 }
 </script>
 

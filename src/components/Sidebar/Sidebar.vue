@@ -1,15 +1,17 @@
 <template>
-  <div class="sidebar" v-show="">
-    <div :class="[isRight ? 'sidebar--right' : '']">
-      <div class="sidebar__header">
-        <span class="sidebar__header-title">{{ title }}</span>
-        <span
-          class="material-icons sidebar__header-close-btn"
-          @click="closeSidebar"
-        >
-          close
-        </span>
-      </div>
+  <div
+    class="sidebar"
+    :class="[className, isRight ? 'sidebar--right' : '']"
+    v-if="isSidebarOpen"
+  >
+    <div class="sidebar__header">
+      <span class="sidebar__header-title">{{ title }}</span>
+      <span
+        class="material-icons sidebar__header-close-btn"
+        @click="closeSidebar"
+      >
+        close
+      </span>
     </div>
     <slot></slot>
   </div>
@@ -17,31 +19,15 @@
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { getModule } from "vuex-module-decorators";
-import SidebarState from "../../store/modules/sidebar-state";
 
 @Component
 export default class Sidebar extends Vue {
   // adding '!' tells to typescript to 'relax' cause someone else is going to assign this property a value
-  //@Prop({ required: true, type: String }) className!: string;
-  @Prop({ required: true, type: Boolean, default: false }) isRight!: boolean;
+  @Prop({ type: String }) className!: string;
+  @Prop({ type: Boolean, default: false }) isRight!: boolean;
   @Prop({ required: true, type: String }) title!: string;
-
-  public closeSidebar(): void {
-    const sidebarState = getModule(SidebarState, this.$store);
-    return sidebarState.closeSidebar();
-  }
-
-  public openSidebar(): void {
-    const sidebarState = getModule(SidebarState, this.$store);
-    return sidebarState.showSidebar();
-  }
-
-  public isSidebarOpen(): boolean {
-    const sidebarState = getModule(SidebarState, this.$store);
-    console.log("lalalal");
-    return sidebarState.getSidebarStatus;
-  }
+  @Prop({ required: true, type: Boolean }) isSidebarOpen!: boolean;
+  @Prop({ required: true }) closeSidebar!: void;
 }
 </script>
 
@@ -64,10 +50,6 @@ export default class Sidebar extends Vue {
   box-shadow: -10px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
-.sidebar--active {
-  display: block;
-}
-
 .sidebar__header {
   display: flex;
   justify-content: space-between;
@@ -81,8 +63,8 @@ export default class Sidebar extends Vue {
 }
 
 .sidebar__header-close-btn {
-  color: #fff;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 }
 
 .sidebar--right .sidebar__header-close-btn {

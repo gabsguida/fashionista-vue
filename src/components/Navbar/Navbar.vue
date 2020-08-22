@@ -1,7 +1,12 @@
 <template>
   <header class="header">
     <div class="header__container">
-      <ButtonIcon iconName="menu" className="header__hamburguer" />
+      <ButtonIcon
+        iconName="menu"
+        className="header__hamburguer"
+        :toggle="toggleMenu"
+      />
+      <Menu />
       <div class="header__logo">
         <a to="/" title="Ir para a página inicial">
           <img
@@ -13,15 +18,22 @@
       </div>
       <div class="header__actions">
         <div class="header__actions-list">
-          <ButtonIcon className="header__actions-search" iconName="search" />
+          <ButtonIcon
+            className="header__actions-search"
+            iconName="search"
+            :toggle="toggleSearch"
+          />
+          <Search />
           <ButtonIcon
             className="header__actions-cart"
             iconName="shopping_cart"
             badge="1"
+            toggle=""
           />
           <ButtonIcon
             className="header__actions-account"
             iconName="account_circle"
+            toggle=""
           />
         </div>
       </div>
@@ -31,14 +43,32 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { getModule } from "vuex-module-decorators";
+import SidebarMenu from "../../store/modules/sidebar-state";
+import SidebarSearch from "../../store/modules/sidebar-search";
+
 import ButtonIcon from "./ButtonIcon.vue";
+import Menu from "@/components/Menu/Menu.vue";
+import Search from "@/components/Search/Search.vue";
 
 @Component({
   components: {
-    ButtonIcon
+    ButtonIcon,
+    Menu,
+    Search
   }
 })
-export default class Navbar extends Vue {}
+export default class Navbar extends Vue {
+  private toggleMenu(): void {
+    const sidebarState = getModule(SidebarMenu, this.$store);
+    return sidebarState.toggleSidebarMenu();
+  }
+
+  private toggleSearch(): void {
+    const sidebarState = getModule(SidebarSearch, this.$store);
+    return sidebarState.toggleSidebarSearch();
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,13 +1,11 @@
 <template>
-  <div :class="className" @click="toggle()" :data-badge="badge">
+  <div :class="className" @click="toggle" :data-badge="badge">
     <span class="material-icons header__icon">{{ iconName }}</span>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
-import { getModule } from "vuex-module-decorators";
-import SidebarState from "../../store/modules/sidebar-state";
 
 @Component
 export default class ButtonIcon extends Vue {
@@ -15,12 +13,7 @@ export default class ButtonIcon extends Vue {
   @Prop({ required: true, type: String }) className!: string;
   @Prop({ type: String }) badge!: string;
   @Prop({ required: true, type: String }) iconName!: string;
-
-  private toggle(): void {
-    const sidebarState = getModule(SidebarState, this.$store);
-    console.log(sidebarState.getSidebarStatus);
-    return sidebarState.toggleSidebar();
-  }
+  @Prop({ required: true }) toggle!: void;
 }
 </script>
 

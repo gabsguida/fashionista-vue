@@ -1,14 +1,20 @@
 import Vue from "vue";
 import Vuex from "vuex";
 
-import SidebarState from "./modules/sidebar-state";
+import SidebarMenu from "./modules/sidebar-state";
+import SidebarSearch from "./modules/sidebar-search";
+import SidebarCart from "./modules/sidebar-cart";
+import SidebarLogin from "./modules/sidebar-login";
 
 Vue.use(Vuex);
 
 const store = new Vuex.Store({
   state: {},
   modules: {
-    SidebarState
+    SidebarMenu,
+    SidebarSearch,
+    SidebarCart,
+    SidebarLogin
   }
 });
 

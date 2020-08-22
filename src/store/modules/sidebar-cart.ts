@@ -1,13 +1,13 @@
 import { VuexModule, Module, Mutation, Action } from 'vuex-module-decorators';
 
-@Module({ namespaced: true, name: 'SidebarMenu'})
+@Module({ namespaced: true, name: 'SidebarCart'})
 
-export default class SidebarMenu extends VuexModule {
-    isSidebarMenuOpen = false
+export default class SidebarCart extends VuexModule {
+    isSidebarCartOpen = false
 
     @Mutation
     public changeSidebarStatus(newState: boolean): any {
-        this.isSidebarMenuOpen = newState;
+        this.isSidebarCartOpen = newState;
     }
 
     @Action
@@ -21,12 +21,12 @@ export default class SidebarMenu extends VuexModule {
     }
 
     @Action
-    public toggleSidebarMenu(): any {
-        this.context.commit('changeSidebarStatus', !this.isSidebarMenuOpen)
+    public toggleSidebarCart(): any {
+        this.context.commit('changeSidebarStatus', !this.isSidebarCartOpen)
     }
 
     // getter
-    get getSidebarMenuStatus() {
-        return this.isSidebarMenuOpen
+    get getSidebarCartStatus() {
+        return this.isSidebarCartOpen
     }
 }
