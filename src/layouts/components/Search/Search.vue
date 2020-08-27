@@ -17,11 +17,7 @@
       </div>
       <div className="products__search-results custom-scrollbar">
         <div className="products__search-results-card">
-          <vs-card type="2">
-            <template #text>
-              {{ value }}
-            </template>
-          </vs-card>
+          {{ searchValue }}
         </div>
       </div>
     </div>
@@ -31,7 +27,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import SidebarSearch from "../../store/modules/sidebar-search";
+import SidebarSearch from "@/store/modules/sidebar-search";
 
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
 

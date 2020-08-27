@@ -20,7 +20,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
-import SidebarMenu from "../../store/modules/sidebar-state";
+import SidebarMenu from "@/store/modules/sidebar-state";
 
 import Sidebar from "@/components/Sidebar/Sidebar.vue";
 

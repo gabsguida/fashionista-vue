@@ -5,6 +5,7 @@ import SidebarMenu from "./modules/sidebar-state";
 import SidebarSearch from "./modules/sidebar-search";
 import SidebarCart from "./modules/sidebar-cart";
 import SidebarLogin from "./modules/sidebar-login";
+import Products from "./modules/products";
 
 Vue.use(Vuex);
 
@@ -14,7 +15,8 @@ const store = new Vuex.Store({
     SidebarMenu,
     SidebarSearch,
     SidebarCart,
-    SidebarLogin
+    SidebarLogin,
+    Products
   }
 });
 
