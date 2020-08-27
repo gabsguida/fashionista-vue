@@ -1,13 +1,25 @@
 <template>
   <div class="products__container">
-    <CustomCard />
+    <template v-for="(product, index) in productsList">
+      <CustomCard
+        :key="index"
+        :productName="product.name"
+        :productImg="product.image"
+        :productPriceSale="product.actual_price"
+        :productRegularPrice="product.regular_price"
+        :isOnSale="product.on_sale"
+        :discountPercentage="product.discount_percentage"
+      />
+    </template>
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { getModule } from "vuex-module-decorators";
-import Products from "@/store/modules/products";
+//import { getModule } from "vuex-module-decorators";
+//import Products from "@/store/modules/products";
+
+import products from "../../mocks/products.json";
 
 import CustomCard from "@/components/CustomCard/CustomCard.vue";
 
@@ -17,18 +29,7 @@ import CustomCard from "@/components/CustomCard/CustomCard.vue";
   }
 })
 export default class ProductsHome extends Vue {
-  private productsList = [];
-
-  public getProductsList(): Array<object> {
-    const products = getModule(Products, this.$store);
-    
-  }
+  // using mock
+  private productsList = products;
 }
 </script>
-
-<style lang="scss" scoped>
-.products__container {
-  width: 200px;
-  margin: 0 auto;
-}
-</style>
