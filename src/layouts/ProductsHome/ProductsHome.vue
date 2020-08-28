@@ -21,7 +21,7 @@ import { Component, Vue } from "vue-property-decorator";
 
 import products from "../../mocks/products.json";
 
-import CustomCard from "@/components/CustomCard/CustomCard.vue";
+import CustomCard from "@/components/ProductCard/ProductCard.vue";
 
 @Component({
   components: {
