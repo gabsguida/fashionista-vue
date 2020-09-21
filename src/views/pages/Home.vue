@@ -1,24 +1,19 @@
 <template>
   <div class="home__container">
-    <Navbar />
-    <main>
-      <ProductsHome />
-    </main>
-    <!-- <div>
-      <router-view></router-view>
-    </div> -->
+    <Carousel />
+    <ProductsHome />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import Navbar from "@/layouts/components/Navbar/Navbar.vue";
 import ProductsHome from "@/layouts/ProductsHome/ProductsHome.vue";
+import Carousel from "@/layouts/components/Carousel/Carousel.vue";
 
 @Component({
   components: {
-    Navbar,
-    ProductsHome
+    ProductsHome,
+    Carousel
   }
 })
 export default class Home extends Vue {}

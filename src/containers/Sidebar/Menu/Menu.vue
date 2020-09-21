@@ -22,7 +22,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
 import SidebarMenu from "@/store/modules/sidebar-state";
 
-import Sidebar from "@/components/Sidebar/Sidebar.vue";
+import Sidebar from "@/containers/Sidebar/Sidebar.vue";
 
 @Component({
   components: {

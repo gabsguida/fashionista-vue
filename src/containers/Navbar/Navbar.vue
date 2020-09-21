@@ -10,7 +10,7 @@
       <div class="header__logo">
         <a to="/" title="Ir para a página inicial">
           <img
-            src="../../../assets/images/Logo.png"
+            src="../../assets/images/Logo.png"
             alt="Fashionista"
             class="header__logo-img"
           />
@@ -48,8 +48,8 @@ import SidebarMenu from "@/store/modules/sidebar-state";
 import SidebarSearch from "@/store/modules/sidebar-search";
 
 import ButtonIcon from "./ButtonIcon.vue";
-import Menu from "@/layouts/components/Menu/Menu.vue";
-import Search from "@/layouts/components/Search/Search.vue";
+import Menu from "@/containers/Sidebar/Menu/Menu.vue";
+import Search from "@/containers/Sidebar/Search/Search.vue";
 
 @Component({
   components: {

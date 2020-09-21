@@ -1,17 +1,11 @@
 <template>
-  <div>
-    <Home />
-  </div>
+  <router-view></router-view>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import Home from "./layouts/Home.vue";
 
 export default Vue.extend({
-  name: "App",
-  components: {
-    Home
-  }
+  name: "App"
 });
 </script>

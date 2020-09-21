@@ -79,7 +79,7 @@ export default class CustomCard extends Vue {
 .card__container {
   width: 230px;
   position: relative;
-  border-radius: 5%;
+  border-radius: 8px;
   box-shadow: 0 4px 25px 0 rgba(0, 0, 0, 0.1);
   margin: 10px auto;
 }
@@ -94,6 +94,7 @@ export default class CustomCard extends Vue {
 
 .card__thumb-img {
   width: 100%;
+  border-radius: 8px 8px 0 0;
 }
 
 .card__thumb-img-actions {
@@ -140,7 +141,7 @@ export default class CustomCard extends Vue {
   .card__details-btn {
     ::v-deep .vs-button {
       margin: 0 !important;
-      border-radius: 5px !important;
+      border-radius: 8px !important;
     }
   }
 }

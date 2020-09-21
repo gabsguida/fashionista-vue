@@ -1,5 +1,6 @@
 <template>
   <div class="products__container">
+    <h2>Nossos Produtos</h2>
     <template v-for="(product, index) in productsList">
       <CustomCard
         :key="index"
@@ -19,7 +20,7 @@ import { Component, Vue } from "vue-property-decorator";
 //import { getModule } from "vuex-module-decorators";
 //import Products from "@/store/modules/products";
 
-import products from "../../mocks/products.json";
+import products from "@/assets/mocks/products.json";
 
 import CustomCard from "@/components/ProductCard/ProductCard.vue";
 
@@ -33,3 +34,12 @@ export default class ProductsHome extends Vue {
   private productsList = products;
 }
 </script>
+
+<style lang="scss" scoped>
+.products__container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-content: center;
+}
+</style>

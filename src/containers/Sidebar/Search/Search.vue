@@ -29,7 +29,7 @@ import { Component, Vue } from "vue-property-decorator";
 import { getModule } from "vuex-module-decorators";
 import SidebarSearch from "@/store/modules/sidebar-search";
 
-import Sidebar from "@/components/Sidebar/Sidebar.vue";
+import Sidebar from "@/containers/Sidebar/Sidebar.vue";
 
 @Component({
   components: {
