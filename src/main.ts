@@ -8,11 +8,10 @@ import store from "./store";
 import Vuesax from "vuesax";
 Vue.use(Vuesax);
 
-import "material-icons/iconfont/material-icons.scss"; //Material Icons
-import "vuesax/dist/vuesax.css"; // Vuesax
+import "material-icons/iconfont/material-icons.scss"; // Material Icons
+import "vuesax/dist/vuesax.css"; // Vuesax css
+
 import "./assets/scss/main.scss"; // global style
-
-
 // adding Vue Carousel
 import VueCarousel from 'vue-carousel';
 Vue.use(VueCarousel);

@@ -1,5 +1,5 @@
 <template>
-  <div class="home__carousel">
+  <div class="carousel">
     <carousel :per-page="1" :mouse-drag="false">
       <slide>
         Slide 1 Content

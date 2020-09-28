@@ -59,12 +59,12 @@ import Search from "@/containers/Sidebar/Search/Search.vue";
   }
 })
 export default class Navbar extends Vue {
-  private toggleMenu(): void {
+  public toggleMenu(): void {
     const sidebarState = getModule(SidebarMenu, this.$store);
     return sidebarState.toggleSidebarMenu();
   }
 
-  private toggleSearch(): void {
+  public toggleSearch(): void {
     const sidebarState = getModule(SidebarSearch, this.$store);
     return sidebarState.toggleSidebarSearch();
   }
