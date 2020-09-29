@@ -6,8 +6,8 @@
     :closeSidebar="closeSidebar"
   >
     <nav class="menu__nav">
-      <ul v-for="(links, index) in menuLinks" :key="index">
-        <li>
+      <ul>
+        <li v-for="(links, index) in menuLinks" :key="index">
           <router-link class="menu__nav-link" :to="links.url">
             {{ links.title }}
           </router-link>
@@ -74,30 +74,33 @@ export default class Menu extends Vue {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .menu__container {
   background-color: #212121;
   color: #fff;
-}
 
-.menu__container .menu__nav ul li .menu__nav-link {
-  display: block;
-  padding: 15px;
-  border-bottom: 1px solid #555;
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: bold;
-  color: #fff;
-  transition: all 0.2s ease-in-out;
-}
+  .menu__nav ul {
+    text-align: start;
 
-.menu__container .menu__nav ul li:first-child .menu__nav-link {
-  border-top: 1px solid #555;
-}
+    li .menu__nav-link {
+      display: block;
+      padding: 15px;
+      border-bottom: 1px solid #555;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: #fff;
+      transition: all 0.2s ease-in-out;
+    }
 
-.menu__container .menu__nav ul li .menu__nav-link:hover {
-  color: #b99646;
-  transition: all 0.2s ease-in-out;
-  padding-left: 25px;
+    li:first-child .menu__nav-link {
+      border-top: 1px solid #555;
+    }
+
+    li .menu__nav-link:hover {
+      color: #b99646;
+      transition: all 0.2s ease-in-out;
+      padding-left: 25px;
+  }
+  }
 }
 </style>
