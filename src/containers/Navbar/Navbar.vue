@@ -10,7 +10,7 @@
       <div class="header__logo">
         <a to="/" title="Ir para a página inicial">
           <img
-            src="../../assets/images/Logo.png"
+            src="../../assets/images/Fashionista.png"
             alt="Fashionista"
             class="header__logo-img"
           />
@@ -90,11 +90,16 @@ export default class Navbar extends Vue {
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
-.header__logo-img {
-  display: block;
-  min-width: 150px;
-  width: 80%;
-  cursor: pointer;
+.header__logo {
+  //width: 40%;
+  padding-left: 8px;
+
+  .header__logo-img {
+    display: block;
+    min-width: 150px;
+    width: 80%;
+    cursor: pointer;
+  }
 }
 
 .header__actions-cart {

@@ -19,7 +19,7 @@ export default class ButtonIcon extends Vue {
 
 <style scoped>
 .header__icon {
-  font-size: 2rem;
+  font-size: 1.8rem;
   padding: 5px 10px 10px;
   position: relative;
   height: 40px;
