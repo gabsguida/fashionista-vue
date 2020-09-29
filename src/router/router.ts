@@ -9,10 +9,10 @@ const router = new Router({
     scrollBehavior: () => {
         return { x: 0, y: 0 }
     },
-    routes: configRoutes()
+    routes: configRoutes() 
 });
 
-function configRoutes() {
+function configRoutes() { // eslint-disable-line no-use-before-define
     return [
         {
             path: "/",
